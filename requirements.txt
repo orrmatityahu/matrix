@@ -2,4 +2,4 @@ django
 djangorestframework
 requests
 selenium
-BeautifulSoup
+beautifulsoup4
