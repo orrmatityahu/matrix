@@ -4,7 +4,7 @@ from requests.exceptions import ConnectionError
 from selenium import webdriver
 
 from api.classes.article import Article
-from utils.system import get_file_path
+from utils.system import get_file_path, get_file_name_by_os
 
 SITE_URL = 'https://edition.cnn.com'
 
@@ -53,8 +53,9 @@ def get_html_page(url=SITE_URL):
     except ConnectionError:
         raise Exception('Could not reach CNN News')
 
-    # get chromedriver path
-    file_path = get_file_path('chromedriver.exe')
+    # get chromedriver-mac path
+    chrom_driver_file_name = get_file_name_by_os()
+    file_path = get_file_path(chrom_driver_file_name)
 
     # run browser and get html
     browser = webdriver.Chrome(file_path)
